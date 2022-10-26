@@ -37,6 +37,10 @@ const putWeather1 = (weather) => {
                   <img src="http://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@4x.png">
                   <button id="forecast">Get the weather forecast</button>
                   `
+                  const forecastBtn = document.getElementById("forecast")
+                  forecastBtn.addEventListener("click", ()=>{
+                    console.log("button inside clicked");
+                  })
 
     weatherCont.innerHTML = html
 }
@@ -64,6 +68,9 @@ const putWeather3 = (weather) => {
 
     weatherCont.innerHTML = html
 }
+
+
+
 
 
 const adelaideWthr = async () => {
@@ -129,8 +136,8 @@ const sydneyWthr = async () => {
 }
 
 const perthWthr = async () => {
-    const pearttLoc = {longitude: 115.888138, latitude: -31.951029}
-    const {longitude, latitude} = pearttLoc
+    const perthLoc = {longitude: 115.888138, latitude: -31.951029}
+    const {longitude, latitude} = perthLoc
 
     const { data } = await axios.get(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
