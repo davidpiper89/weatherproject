@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://kit.fontawesome.com/b44533a4ad.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer type="module" src="js.js"></script>
+
+</head>
+<body>
+    <header>
+    <h1>David Piper's T20 Cricket World Cup Weather App</h1>
+    </header>
+
+    <div class="container1">
+        <div class="ground-container">
+            <button id="adelaide"><img src="/images/adelaide-oval-redevelopment-image-1-min.jpg" width="200px" height="150px" alt=""><p>Adelaide - Adelaide Oval</p></button>
+            <button id="brisbane"><img src="/images/The_Gabba_Panorama.jpg" width="200px" alt=""> <p> Brisbane - The Gabba</p></button>
+            <button id="geelong"><img src="/images/1200px-Kardinia_Park_October_2019_Western_United_v_Perth_Glory.jpg" alt="" width="200px" height="150px"><p>Geelong</p></button>
+            <button id="hobart"><img src="images/196089.5.webp" alt="" width="200px" height="150px"><p>Hobart</p></button>
+            <button id="melbourne">Melbourne</button>
+            <button id="perth">Perth</button>
+            <button id="sydney">Sydney</button>
+        </div>
+        <div id="weather"></div>
+               <!-- <input type="date" id= "matchDate"> -->
+    </div>
+    <div class="container2">
+        <h1>Check the weather where you are!</h1>
+        <button id="getMyWthr">Get My Weather</button>
+        <h3>Or enter a city:
+        <form id="cityName">
+            <input type="text" name="city" id="cityLoc">
+            <button type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        </h3>
+        <div id="myweather"></div>
+    </div>
+
+
+    
+</body>
+</html>
