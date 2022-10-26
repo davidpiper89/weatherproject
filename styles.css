@@ -1,3 +1,5 @@
 .ground-container {display: flex; justify-content: space-around; flex-wrap: wrap;}
 
 #myweather {background-color: #454545;}
+
+.gnd_btn {margin-top: 20px;}

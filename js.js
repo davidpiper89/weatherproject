@@ -21,6 +21,11 @@ const geeHobMelSydTime = myDate1.toLocaleString(`en-GB`, {
     timeZone: "Australia/Sydney"
 })
 
+const myDate2 = new Date()
+const perthTime = myDate2.toLocaleString(`en-GB`, {
+    timeZone: "Australia/Perth"
+})
+
 
 
 
@@ -39,6 +44,18 @@ const putWeather1 = (weather) => {
 const putWeather2 = (weather) => {
     const html = `<h1> Current weather in ${weather.city.name} </h1>
                   <h2> Current date and time is : ${geeHobMelSydTime}
+                  <h2> Temperature: ${Math.round(weather.list[0].main.temp - 273.15)}°</h2>
+                  <h3>${weather.list[0].weather[0].description}</h3>
+                  <img src="http://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@4x.png">
+                  <button id="forecast">Get the weather forecast</button>
+                  `
+
+    weatherCont.innerHTML = html
+}
+
+const putWeather3 = (weather) => {
+    const html = `<h1> Current weather in ${weather.city.name} </h1>
+                  <h2> Current date and time is : ${perthTime}
                   <h2> Temperature: ${Math.round(weather.list[0].main.temp - 273.15)}°</h2>
                   <h3>${weather.list[0].weather[0].description}</h3>
                   <img src="http://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@4x.png">
@@ -72,8 +89,8 @@ const brisbaneWthr = async () => {
 };
 
 const geelongWthr = async () => {
-    const brisbaneLoc = {longitude: 144.350006, latitude:-38.150002}
-    const {longitude, latitude} = brisbaneLoc
+    const geeLongLoc = {longitude: 144.350006, latitude:-38.150002}
+    const {longitude, latitude} = geeLongLoc
 
     const { data } = await axios.get(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
@@ -82,8 +99,8 @@ const geelongWthr = async () => {
 }
 
 const hobartWthr = async () => {
-    const brisbaneLoc = {longitude: 147.324997, latitude:-42.880554}
-    const {longitude, latitude} = brisbaneLoc
+    const hobartLoc = {longitude: 147.324997, latitude:-42.880554}
+    const {longitude, latitude} = hobartLoc
 
     const { data } = await axios.get(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
@@ -92,8 +109,8 @@ const hobartWthr = async () => {
 }
 
 const melbourneWthr = async () => {
-    const brisbaneLoc = {longitude: 144.983398, latitude: -37.819954}
-    const {longitude, latitude} = brisbaneLoc
+    const melbourneLoc = {longitude: 144.983398, latitude: -37.819954}
+    const {longitude, latitude} = melbourneLoc
 
     const { data } = await axios.get(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
@@ -102,8 +119,8 @@ const melbourneWthr = async () => {
 }
 
 const sydneyWthr = async () => {
-    const brisbaneLoc = {longitude: 151.224121, latitude: -33.891525}
-    const {longitude, latitude} = brisbaneLoc
+    const sydneyLoc = {longitude: 151.224121, latitude: -33.891525}
+    const {longitude, latitude} = sydneyLoc
 
     const { data } = await axios.get(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
@@ -111,6 +128,15 @@ const sydneyWthr = async () => {
         putWeather2(data)
 }
 
+const perthWthr = async () => {
+    const pearttLoc = {longitude: 115.888138, latitude: -31.951029}
+    const {longitude, latitude} = pearttLoc
+
+    const { data } = await axios.get(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
+
+        putWeather3(data)
+    }
 
 adelaideBtn.addEventListener('click', adelaideWthr)
 brisbaneBtn.addEventListener('click', brisbaneWthr)
@@ -118,6 +144,8 @@ geelongBtn.addEventListener('click', geelongWthr)
 hobartBtn.addEventListener('click', hobartWthr)
 melbourneBtn.addEventListener('click', melbourneWthr)
 sydneyBtn.addEventListener('click', sydneyWthr)
+perthBtn.addEventListener('click', perthWthr)
+
 
 //////////////////////////////////////////////////////////
 // User Location or requested city Weather
