@@ -9,27 +9,28 @@ const perthBtn = document.getElementById("perth")
 const sydneyBtn = document.getElementById("sydney")
 const weatherCont = document.getElementById("weather")
 
-
-const myDate = new Date()
-
+let myDate = new Date()
 
 const adeBrisTime = (myDate) =>{
 return myDate.toLocaleString(`en-GB`, {
     timeZone: "Australia/Brisbane"
 })}
 
-const myDate1 = new Date()
-const geeHobMelSydTime = myDate1.toLocaleString(`en-GB`, {
-    timeZone: "Australia/Sydney"
-})
+const geeHobMelSydTime = (myDate) =>{
+return myDate.toLocaleString(`en-GB`, {
+        timeZone: "Australia/Sydney"
+    })}
 
-const myDate2 = new Date()
-const perthTime = myDate2.toLocaleString(`en-GB`, {
-    timeZone: "Australia/Perth"
-})
+const perthTime = (myDate) =>{
+return myDate.toLocaleString(`en-GB`, {
+        timeZone: "Australia/Perth"
+        })}
+    
 
+perthTime
 
 const putWeather1 = (weather) => {
+    myDate = new Date()
     const html = `<h1> Current weather in ${weather.name} </h1>
                   <h2> Current date and time is : ${adeBrisTime(myDate)}
                   <h2> Temperature: ${Math.round(weather.main.temp - 273.15)}°</h2>
@@ -44,21 +45,24 @@ const putWeather1 = (weather) => {
 }
 
 const putWeather2 = (weather) => {
-    const html = `<h1> Current weather in ${weather.name} </h1>
-    <h2> Current date and time is : ${adeBrisTime(myDate)}
+    myDate = new Date()
+    let html = `<h1> Current weather in ${weather.name} </h1>
+    <h2> Current date and time is : ${geeHobMelSydTime(myDate)}
     <h2> Temperature: ${Math.round(weather.main.temp - 273.15)}°</h2>
     <h3>${weather.weather[0].description}</h3>
     <img src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png">
              
     <button id="forecast">Get the weather forecast</button>
     `
-
+// if (weather.weather[0].description)
+//  {html += ""}
     weatherCont.innerHTML = html
 }
 
 const putWeather3 = (weather) => {
+    myDate = new Date()
     const html = `<h1> Current weather in ${weather.name} </h1>
-    <h2> Current date and time is : ${adeBrisTime(myDate)}
+    <h2> Current date and time is : ${perthTime(myDate)}
     <h2> Temperature: ${Math.round(weather.main.temp - 273.15)}°</h2>
     <h3>${weather.weather[0].description}</h3>
     <img src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png">
