@@ -27,7 +27,6 @@ return myDate.toLocaleString(`en-GB`, {
         })}
     
 
-perthTime
 
 const putWeather1 = (weather) => {
     myDate = new Date()
@@ -73,127 +72,29 @@ const putWeather3 = (weather) => {
     weatherCont.innerHTML = html
 }
 
-
-
-const adelaideWthr = async () => {
-    try{
-    const adelaideLoc = {longitude: 138.5953, latitude:-34.9156}
-    const {longitude, latitude} = adelaideLoc
-
-    const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
-
-        console.log(data);
-
-        putWeather1(data)
-    }
-    catch (err) {
-        weatherCont.innerHTML = `Failed to load weather`
-    }
-};
-
-const brisbaneWthr = async () => {
-
-    try{
-    const brisbaneLoc = {longitude: 153.037430, latitude:-27.486099}
-    const {longitude, latitude} = brisbaneLoc
-
-    const { data } = await axios.get(
+const axiosGetWthr = async (longitude, latitude) => {
+    const {data} = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         putWeather1(data)
-    }
-    catch (err) {
-        weatherCont.innerHTML = `Failed to load weather`
-    }
-};
-
-const geelongWthr = async () => {
-    try{
-    const geeLongLoc = {longitude: 144.350006, latitude:-38.150002}
-    const {longitude, latitude} = geeLongLoc
-
-    const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
-
-        console.log(data);
-        putWeather2(data)
-    }
-    catch (err) {
-        weatherCont.innerHTML = `Failed to load weather`
-    }
 }
 
-const hobartWthr = async () => {
-    try{
-    const hobartLoc = {longitude: 147.324997, latitude:-42.880554}
-    const {longitude, latitude} = hobartLoc
 
-    const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
-
-        putWeather2(data)
-    }
-    catch (err) {
-        weatherCont.innerHTML = `Failed to load weather`
-    }
-}
-
-const melbourneWthr = async () => {
-    try{
-    const melbourneLoc = {longitude: 144.983398, latitude: -37.819954}
-    const {longitude, latitude} = melbourneLoc
-
-    const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
-
-        putWeather2(data)
-    }
-    catch (err) {
-        weatherCont.innerHTML = `Failed to load weather`
-    }
-}
-
-const sydneyWthr = async () => {
-    try{
-    const sydneyLoc = {longitude: 151.224121, latitude: -33.891525}
-    const {longitude, latitude} = sydneyLoc
-
-    const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
-
-        putWeather2(data)
-    }
-    catch (err) {
-        weatherCont.innerHTML = `Failed to load weather`
-    }
-}
-
-const perthWthr = async () => {
-    try{
-    const perthLoc = {longitude: 115.888138, latitude: -31.951029}
-    const {longitude, latitude} = perthLoc
-
-    const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
-
-        putWeather3(data)
-    }
-    catch (err) {
-        weatherCont.innerHTML = `Failed to load weather`
-    }
-    }
-
-adelaideBtn.addEventListener('click', adelaideWthr)
-brisbaneBtn.addEventListener('click', brisbaneWthr)
-geelongBtn.addEventListener('click', geelongWthr)
-hobartBtn.addEventListener('click', hobartWthr)
-melbourneBtn.addEventListener('click', melbourneWthr)
-sydneyBtn.addEventListener('click', sydneyWthr)
-perthBtn.addEventListener('click', perthWthr)
+adelaideBtn.addEventListener('click', () => {
+    axiosGetWthr(138.5953, -34.9156)})
+brisbaneBtn.addEventListener('click', () => {
+    axiosGetWthr(153.037430, -27.486099)})
+geelongBtn.addEventListener('click', () => {
+    axiosGetWthr(144.350006, -38.150002)})
+hobartBtn.addEventListener('click', () => {
+    axiosGetWthr(147.324997, 42.8805546)})
+melbourneBtn.addEventListener('click', () => {
+    axiosGetWthr(144.983398, -37.819954)})
+sydneyBtn.addEventListener('click', () => {
+    axiosGetWthr(151.224121, -33.891525)})
+perthBtn.addEventListener('click', () => {
+    axiosGetWthr(115.888138, -31.9510296)})
 
 
-//////////////////////////////////////////////////////////
-// User Location or requested city Weather
 
 
