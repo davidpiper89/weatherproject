@@ -5,6 +5,8 @@ h2 {font-size: 16px;}
 
 /* #myweather {background-color: #454545;} */
 
-.gnd_btn {display: flex; position:relative; margin: 15px 10px; justify-content: center; border: none; padding: 0; border-radius: 10px; box-shadow: 5px 5px 10px 5px #888888; overflow: hidden; align-content: center; }
-.gnd_btn p {position: absolute; color: white; font-size: 20px; text-shadow: 2px 1px 2px black; top: 0; font-weight: 800; }
+.gnd_btn {display: flex; position:relative; margin: 15px 10px; justify-content: center; border: none; padding: 0; border-radius: 10px; box-shadow: 3px 3px 8px 3px #888888; overflow: hidden; align-items: center; }
 
+.gnd_btn p {position: absolute; color: white; font-size: 20px; text-shadow: 2px 1px 2px black; font-weight: 800; }
+
+.weathercontainer {display: flex; justify-content: center;}
