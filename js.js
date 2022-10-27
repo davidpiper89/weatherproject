@@ -11,9 +11,12 @@ const weatherCont = document.getElementById("weather")
 
 
 const myDate = new Date()
-const adeBrisTime = myDate.toLocaleString(`en-GB`, {
+
+
+const adeBrisTime = (myDate) =>{
+return myDate.toLocaleString(`en-GB`, {
     timeZone: "Australia/Brisbane"
-})
+})}
 
 const myDate1 = new Date()
 const geeHobMelSydTime = myDate1.toLocaleString(`en-GB`, {
@@ -26,40 +29,42 @@ const perthTime = myDate2.toLocaleString(`en-GB`, {
 })
 
 
-
-
 const putWeather1 = (weather) => {
-    const html = `<h1> Current weather in ${weather.city.name} </h1>
-                  <h2> Current date and time is : ${adeBrisTime}
-                  <h2> Temperature: ${Math.round(weather.list[0].main.temp - 273.15)}°</h2>
-                  <h3>${weather.list[0].weather[0].description}</h3>
-                  <img src="http://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@4x.png">
+    const html = `<h1> Current weather in ${weather.name} </h1>
+                  <h2> Current date and time is : ${adeBrisTime(myDate)}
+                  <h2> Temperature: ${Math.round(weather.main.temp - 273.15)}°</h2>
+                  <h3>${weather.weather[0].description}</h3>
+                  <img src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png">
+                           
                   <button id="forecast">Get the weather forecast</button>
                   `
+
                
     weatherCont.innerHTML = html
 }
 
 const putWeather2 = (weather) => {
-    const html = `<h1> Current weather in ${weather.city.name} </h1>
-                  <h2> Current date and time is : ${geeHobMelSydTime}
-                  <h2> Temperature: ${Math.round(weather.list[0].main.temp - 273.15)}°</h2>
-                  <h3>${weather.list[0].weather[0].description}</h3>
-                  <img src="http://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@4x.png">
-                  <button id="forecast">Get the weather forecast</button>
-                  `
+    const html = `<h1> Current weather in ${weather.name} </h1>
+    <h2> Current date and time is : ${adeBrisTime(myDate)}
+    <h2> Temperature: ${Math.round(weather.main.temp - 273.15)}°</h2>
+    <h3>${weather.weather[0].description}</h3>
+    <img src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png">
+             
+    <button id="forecast">Get the weather forecast</button>
+    `
 
     weatherCont.innerHTML = html
 }
 
 const putWeather3 = (weather) => {
-    const html = `<h1> Current weather in ${weather.city.name} </h1>
-                  <h2> Current date and time is : ${perthTime}
-                  <h2> Temperature: ${Math.round(weather.list[0].main.temp - 273.15)}°</h2>
-                  <h3>${weather.list[0].weather[0].description}</h3>
-                  <img src="http://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@4x.png">
-                  <button id="forecast">Get the weather forecast</button>
-                  `
+    const html = `<h1> Current weather in ${weather.name} </h1>
+    <h2> Current date and time is : ${adeBrisTime(myDate)}
+    <h2> Temperature: ${Math.round(weather.main.temp - 273.15)}°</h2>
+    <h3>${weather.weather[0].description}</h3>
+    <img src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png">
+             
+    <button id="forecast">Get the weather forecast</button>
+    `
 
     weatherCont.innerHTML = html
 }
@@ -72,7 +77,7 @@ const adelaideWthr = async () => {
     const {longitude, latitude} = adelaideLoc
 
     const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         console.log(data);
 
@@ -90,7 +95,7 @@ const brisbaneWthr = async () => {
     const {longitude, latitude} = brisbaneLoc
 
     const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         putWeather1(data)
     }
@@ -105,8 +110,9 @@ const geelongWthr = async () => {
     const {longitude, latitude} = geeLongLoc
 
     const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
+        console.log(data);
         putWeather2(data)
     }
     catch (err) {
@@ -120,7 +126,7 @@ const hobartWthr = async () => {
     const {longitude, latitude} = hobartLoc
 
     const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         putWeather2(data)
     }
@@ -135,7 +141,7 @@ const melbourneWthr = async () => {
     const {longitude, latitude} = melbourneLoc
 
     const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         putWeather2(data)
     }
@@ -150,7 +156,7 @@ const sydneyWthr = async () => {
     const {longitude, latitude} = sydneyLoc
 
     const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         putWeather2(data)
     }
@@ -165,7 +171,7 @@ const perthWthr = async () => {
     const {longitude, latitude} = perthLoc
 
     const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         putWeather3(data)
     }
