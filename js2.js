@@ -21,7 +21,8 @@ const success = async (evt) => {
 }
    
 const error = (err) => {
-    
+   console.log(err);
+   weatherCont2.innerHTML = `${err.message}`
 }
 
 getMyWthrBtn.addEventListener("click", () => {

@@ -66,9 +66,8 @@ const putWeather3 = (weather) => {
 
 
 
-
-
 const adelaideWthr = async () => {
+    try{
     const adelaideLoc = {longitude: 138.5953, latitude:-34.9156}
     const {longitude, latitude} = adelaideLoc
 
@@ -78,9 +77,15 @@ const adelaideWthr = async () => {
         console.log(data);
 
         putWeather1(data)
+    }
+    catch (err) {
+        weatherCont.innerHTML = `Failed to load weather`
+    }
 };
 
 const brisbaneWthr = async () => {
+
+    try{
     const brisbaneLoc = {longitude: 153.037430, latitude:-27.486099}
     const {longitude, latitude} = brisbaneLoc
 
@@ -88,9 +93,14 @@ const brisbaneWthr = async () => {
         `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         putWeather1(data)
+    }
+    catch (err) {
+        weatherCont.innerHTML = `Failed to load weather`
+    }
 };
 
 const geelongWthr = async () => {
+    try{
     const geeLongLoc = {longitude: 144.350006, latitude:-38.150002}
     const {longitude, latitude} = geeLongLoc
 
@@ -98,9 +108,14 @@ const geelongWthr = async () => {
         `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         putWeather2(data)
+    }
+    catch (err) {
+        weatherCont.innerHTML = `Failed to load weather`
+    }
 }
 
 const hobartWthr = async () => {
+    try{
     const hobartLoc = {longitude: 147.324997, latitude:-42.880554}
     const {longitude, latitude} = hobartLoc
 
@@ -108,9 +123,14 @@ const hobartWthr = async () => {
         `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         putWeather2(data)
+    }
+    catch (err) {
+        weatherCont.innerHTML = `Failed to load weather`
+    }
 }
 
 const melbourneWthr = async () => {
+    try{
     const melbourneLoc = {longitude: 144.983398, latitude: -37.819954}
     const {longitude, latitude} = melbourneLoc
 
@@ -118,9 +138,14 @@ const melbourneWthr = async () => {
         `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         putWeather2(data)
+    }
+    catch (err) {
+        weatherCont.innerHTML = `Failed to load weather`
+    }
 }
 
 const sydneyWthr = async () => {
+    try{
     const sydneyLoc = {longitude: 151.224121, latitude: -33.891525}
     const {longitude, latitude} = sydneyLoc
 
@@ -128,9 +153,14 @@ const sydneyWthr = async () => {
         `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         putWeather2(data)
+    }
+    catch (err) {
+        weatherCont.innerHTML = `Failed to load weather`
+    }
 }
 
 const perthWthr = async () => {
+    try{
     const perthLoc = {longitude: 115.888138, latitude: -31.951029}
     const {longitude, latitude} = perthLoc
 
@@ -138,6 +168,10 @@ const perthWthr = async () => {
         `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
 
         putWeather3(data)
+    }
+    catch (err) {
+        weatherCont.innerHTML = `Failed to load weather`
+    }
     }
 
 adelaideBtn.addEventListener('click', adelaideWthr)
