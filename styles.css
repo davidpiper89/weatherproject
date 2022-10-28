@@ -1,8 +1,10 @@
 *{font-family: sans-serif; }
 
+body {background-color: #cefad0 ;}
+
 .ground-container {display: flex; justify-content: space-around; flex-wrap: wrap; ;}
 
-h2 {font-size: 16px;}
+h2 {font-size: 20px;}
 
 /* #myweather {background-color: #454545;} */
 
@@ -10,7 +12,18 @@ h2 {font-size: 16px;}
 
 .gnd_btn p {position: absolute; color: white; font-size: 20px; text-shadow: 2px 1px 2px black; font-weight: 800; }
 
-.weathercontainer {display: flex; justify-content: center;}
+.weathercontainer {display: flex; justify-content: center;margin-top: 15px; margin-bottom: 20px; }
 
-#weather {display: flex; flex-direction: column; background-color: #192841;color: white; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; border-radius: 10px; visibility: hidden; }
+#weather {display: flex; flex-direction: column; background-color: #23395d;color: white; padding-left: 15px; padding-right: 15px; padding-bottom: 10px; border-radius: 10px; visibility: hidden; }
+
+#forecastCont {display: flex;  flex-wrap: wrap; justify-content: space-evenly;}
+.forecast {display: flex; flex-direction: column; width: 26%; background-color: #23395d; margin-bottom: 20px; color: white; border-radius: 10px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; }
+
+.date {font-size: 20px ;}
+
+.container2 {display: flex;  flex-direction: column; justify-content: center; align-items: center;}
+
+.myWeatherCont {display: flex; justify-content: center;}
+
+#myweather {display: flex; flex-direction: column; background-color: #23395d;color: white; padding-left: 15px; padding-right: 15px; padding-bottom: 10px; border-radius: 10px; visibility: hidden;}
 

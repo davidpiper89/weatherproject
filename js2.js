@@ -4,10 +4,11 @@ const options = { enableHighAccuracy: true, timeout: 10000, maximumAge: 0};
 
 const putMyWeather = (weather) => {
 
-const html2 = `<h1>Current weather in ${weather.city.name}</h1>
+const html2 = `<style> #myweather {visibility: visible;}</style>
+            <h1>Weather in ${weather.city.name}</h1>
             <h2> Temperature: ${Math.round(weather.list[0].main.temp - 273.15)}°</h2>
             <h3>${weather.list[0].weather[0].description}</h3>
-            <img src="http://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@4x.png">`
+            <h2><img src="http://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@4x.png"></h2>`
 
 
 weatherCont2.innerHTML = html2
@@ -69,13 +70,15 @@ const convertToCity = async (cityLat, cityLong) => {
 }
 
 
+
 const putMyWeatherCity = (data) => {
 
-    const html2 = `<h1>Current weather in ${data.name}</h1>
+    const html2 = `<style> #myweather {visibility: visible;} </style>
+                <h1>Weather in ${data.name}</h1>
                 <h2> Temperature: ${Math.round(data.main.temp - 273.15)}°</h2>
                 <h3>${data.weather[0].main}</h3>
                 <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png">`
-    console.log(data);
+    ;
     
     weatherCont2.innerHTML = html2
     
