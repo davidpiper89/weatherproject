@@ -1,0 +1,36 @@
+const pullForecast = () => {
+            
+   
+   if (weather.city.name === "Adelaide"){
+                return adeBrisForecast(localDateTime)
+            }
+            if (weather.city.name === "Woolloongabba"){
+                return adeBrisForecast(localDateTime)
+            }
+            if (weather.city.name === "Geelong"){
+                return sydneyForecast(localDateTime)
+            }
+            if (weather.city.name === "Shikotan"){
+                return sydneyForecast(localDateTime)
+            }
+            if (weather.city.name === "East Melbourne"){
+                return sydneyForecast(localDateTime)
+            }
+            if (weather.city.name === "Paddington"){
+                return sydneyForecast(localDateTime)
+            }
+            if (weather.city.name === "Burswood"){
+                return perthForecast(localDateTime)
+            }
+        }
+
+        const adeBrisForecast = () => {localDateTime.toLocaleString('en-AU', {
+            timeZone: "Australia/Brisbane"})
+        }
+
+        const sydneyForecast = () => {localDateTime.toLocaleString('en-AU', {
+            timeZone: "Australia/Sydney"})
+        }
+        const perthForecast = () => {localDateTime.toLocaleString('en-AU', {
+            timeZone: "Australia/Perth"})
+        } 
