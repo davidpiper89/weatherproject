@@ -4,11 +4,17 @@ const options = { enableHighAccuracy: true, timeout: 10000, maximumAge: 0};
 
 const putMyWeather = (weather) => {
 
-const html2 = `<style> #myweather {visibility: visible;}</style>
-            <h1>Weather in ${weather.city.name}</h1>
-            <h2> Temperature: ${Math.round(weather.list[0].main.temp - 273.15)}°</h2>
-            <h3>${weather.list[0].weather[0].description}</h3>
-            <h2><img src="http://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@4x.png"></h2>`
+    // const firstLetterCapital = weather.list[0].weather[0].description
+    // const firstLetterCapital2 = firstLetterCapital.charAt(0).toUpperCase() + firstLetterCapital.slice(1)
+
+    console.log(weather);
+
+const html2 = `<style> #myweather {visibility: visible;} </style>
+            <h1>Weather in ${weather.name}</h1>
+            <h2> Temperature: ${Math.round(weather.main.temp - 273.15)}°</h2>
+            <h2> ${weather.weather[0].main}</h2>
+            <h2><img src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png"></h2>
+            <h2>Humidity: ${weather.main.humidity}%`
 
 
 weatherCont2.innerHTML = html2
@@ -16,7 +22,7 @@ weatherCont2.innerHTML = html2
 
 const success = async (evt) => {
     const {latitude, longitude} = evt.coords;
-    const {data} = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`)
+    const {data} = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`)
    
     putMyWeather(data);
 }
@@ -45,13 +51,7 @@ document.addEventListener("submit", (e)=> {
     getCity(cityEntry)
 })
 
-// const getCity = async (cityEntry) => {
-//     const {data}= await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityEntry}&appid=40ce40e3254302084831efa372ed8341`)
 
-//     console.log(data);
-
-//     putMyWeatherCity(data)
-// }
 
 
 const getCity = async (cityEntry) => {
@@ -77,8 +77,8 @@ const putMyWeatherCity = (data) => {
     const html2 = `<style> #myweather {visibility: visible;} </style>
                 <h1>Weather in ${data.name}</h1>
                 <h2> Temperature: ${Math.round(data.main.temp - 273.15)}°</h2>
-                <h3>${data.weather[0].main}</h3>
-                <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png">`
+                <h2>${data.weather[0].main}</h3>
+                <h2><img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"></h2>`
     ;
     
     weatherCont2.innerHTML = html2
