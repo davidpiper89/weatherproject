@@ -45,9 +45,7 @@ const locationForm = document.getElementById("cityName")
 
 document.addEventListener("submit", (e)=> {
     e.preventDefault();
-    const cityEntry = cityLoc.value
-    console.log(cityEntry);
-
+    const cityEntry = cityLoc.value;
     getCity(cityEntry)
 })
 
@@ -78,8 +76,8 @@ const putMyWeatherCity = (data) => {
                 <h1>Weather in ${data.name}</h1>
                 <h2> Temperature: ${Math.round(data.main.temp - 273.15)}°</h2>
                 <h2>${data.weather[0].main}</h3>
-                <h2><img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"></h2>`
-    ;
+                <h2><img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"></h2>
+                <h2>Humidity: ${data.main.humidity}%`;
     
     weatherCont2.innerHTML = html2
     

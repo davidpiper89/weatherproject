@@ -39,7 +39,7 @@ return myDate.toLocaleString(`en-AU`, {
 const putWeather1 = (weather) => {
 
     try {
-    forecastCont.removeChild("forecast")
+    forecastCont.innerHTML = "";
     }catch(err){
         console.log("no forecast to remove");
     }finally {
@@ -85,9 +85,7 @@ const putWeather1 = (weather) => {
                   <button id="getForecastBtn">Get the forecast</button>`
 
                  
-    weatherCont.innerHTML = html
-
-    console.log(weather);
+    weatherCont.innerHTML = html;
     
     const forecastBtn = document.getElementById("getForecastBtn")
     forecastBtn.addEventListener('click', () => {
@@ -147,8 +145,7 @@ const putForecast1 = (weather) => {
 
         const firstLetterCapital = forecast.weather[0].description
         const firstLetterCapital2 = firstLetterCapital.charAt(0).toUpperCase() + firstLetterCapital.slice(1)
-        return `<style>.forecast {visibility: visible;}</style>
-                <div class="forecast"> <p class="date">Date and Time: ${pullForecast()} </p>
+        return `<div class="forecast"> <p class="date">Date and Time: ${pullForecast()} </p>
                 <p>Temperature: ${Math.round(forecast.main.temp - 273.15)}°</p>
                 <p><img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"></p>
                 <p>Desciption: ${firstLetterCapital2}</p>
