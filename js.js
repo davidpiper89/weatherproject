@@ -38,11 +38,11 @@ return myDate.toLocaleString(`en-AU`, {
 
 const putWeather1 = (weather) => {
 
-    // try {
-    // forecastCont.removeChild("forecast")
-    // }catch(err){
-    //     console.log("no forecast to remove");
-    // }finally {
+    try {
+    forecastCont.removeChild("forecast")
+    }catch(err){
+        console.log("no forecast to remove");
+    }finally {
 
     myDate = new Date();
 
@@ -100,7 +100,7 @@ const putWeather1 = (weather) => {
 // }{
 //     html+= "<p> Not cloudy"
 // }  
-// }
+}
 
 }
 
