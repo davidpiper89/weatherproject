@@ -2,6 +2,10 @@
 
 body {background-color: #cefad0 ;}
 
+.header {text-align: center;}
+
+.link {font-size: 14px;}
+
 .ground-container {display: flex; justify-content: space-around; flex-wrap: wrap; ;}
 
 h2 {font-size: 20px;}
@@ -25,5 +29,7 @@ h2 {font-size: 20px;}
 
 .myWeatherCont {display: flex; justify-content: center;}
 
-#myweather {display: flex; flex-direction: column; background-color: #23395d;color: white; padding-left: 15px; padding-right: 15px; padding-bottom: 10px; border-radius: 10px; visibility: hidden;}
+#myweather {display: flex; flex-direction: column; background-color: #23395d;color: white; padding-left: 15px; padding-right: 15px; padding-bottom: 10px; border-radius: 10px; visibility: hidden; margin-bottom: 20px;}
 
+#myforecastcont {display: flex;  flex-wrap: wrap; justify-content: space-evenly;}
+.myforecast {display: flex; flex-direction: column; width: 26%; background-color: #23395d; margin-bottom: 20px; color: white; border-radius: 10px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; }

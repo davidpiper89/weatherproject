@@ -175,34 +175,27 @@ const axiosGetForecast = async (longitude,latitude) => {
 
 adelaideBtn.addEventListener('click', () => {
     axiosGetWthr(138.5953, -34.9156)})
-// adelaideBtn.addEventListener('click', () => {
-//     axiosGetForecast(138.5953, -34.9156)})
+
 brisbaneBtn.addEventListener('click', () => {
     axiosGetWthr(153.037430, -27.486099)})
-// brisbaneBtn.addEventListener('click', () => {
-//     axiosGetForecast(153.037430, -27.486099)})
+
 
 geelongBtn.addEventListener('click', () => {
     axiosGetWthr(144.350006, -38.150002)})
-// geelongBtn.addEventListener('click', () => {
-//     axiosGetForecast(144.350006, -38.150002)})
+
 hobartBtn.addEventListener('click', () => {
     axiosGetWthr(147.324997, 42.8805546)})
-// hobartBtn.addEventListener('click', () => {
-//     axiosGetForecast(147.324997, 42.8805546)})
+
 melbourneBtn.addEventListener('click', () => {
     axiosGetWthr(144.983398, -37.819954)})
-// melbourneBtn.addEventListener('click', () => {
-//     axiosGetForecast(144.983398, -37.819954)})
+
 sydneyBtn.addEventListener('click', () => {
     axiosGetWthr(151.224121, -33.891525)})
-// sydneyBtn.addEventListener('click', () => {
-//     axiosGetForecast(151.224121, -33.891525)})
+
 
 perthBtn.addEventListener('click', () => {
     axiosGetWthr(115.888138, -31.9510296)})
-// perthBtn.addEventListener('click', () => {
-//     axiosGetForecast3(115.888138, -31.9510296)})
+
 
 
 

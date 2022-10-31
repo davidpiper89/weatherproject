@@ -1,24 +1,58 @@
 const getMyWthrBtn = document.getElementById("getMyWthr")
 const weatherCont2 = document.getElementById("myweather")
 const options = { enableHighAccuracy: true, timeout: 10000, maximumAge: 0}; 
+const myforecast = document.getElementById("myforecastcont")
 
 const putMyWeather = (weather) => {
 
-    // const firstLetterCapital = weather.list[0].weather[0].description
-    // const firstLetterCapital2 = firstLetterCapital.charAt(0).toUpperCase() + firstLetterCapital.slice(1)
+    try {
+        myforecast.innerHTML = "";
+        }catch(err){
+            console.log("no forecast to remove");
+        }finally {
+    const date = new Date()
 
-    console.log(weather);
+const firstLetterCapital = weather.weather[0].description
+const firstLetterCapital2 = firstLetterCapital.charAt(0).toUpperCase() + firstLetterCapital.slice(1)
 
 const html2 = `<style> #myweather {visibility: visible;} </style>
             <h1>Weather in ${weather.name}</h1>
+            <h2>Date and Time: ${date.toLocaleString('en-GB')}
             <h2> Temperature: ${Math.round(weather.main.temp - 273.15)}°</h2>
-            <h2> ${weather.weather[0].main}</h2>
+            <h2> ${firstLetterCapital2}</h2>
             <h2><img src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png"></h2>
-            <h2>Humidity: ${weather.main.humidity}%`
+            <h2>Humidity: ${weather.main.humidity}</h2>
+            <button id="myforecast">Get your forecast</button>`
 
-
+   
 weatherCont2.innerHTML = html2
+    const myForecastBtn = document.getElementById("myforecast")
+    myForecastBtn.addEventListener('click', () => {
+        axiosGetMyForecast(weather.coord.lon, weather.coord.lat)
+    })
+}} 
+
+const putMyForecast = (data) => {
+
+    const list = data.list.map((forecast) =>{
+
+        console.log(forecast);
+    const firstLetterCapital = forecast.weather[0].description
+    const firstLetterCapital2 = firstLetterCapital.charAt(0).toUpperCase() + firstLetterCapital.slice(1)
+    return `<div class="myforecast"> 
+            <p> Date and Time ${forecast.dt_txt}</p>
+            <p>Temperature: ${Math.round(forecast.main.temp - 273.15)}°</p>
+            <p><img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"></p>
+            <p>Desciption: ${firstLetterCapital2}</p>
+            <p>Humidity: ${forecast.main.humidity}%</p></div>
+            `;
+})
+
+
+    myforecast.innerHTML = list.join("");
 }
+        
+
 
 const success = async (evt) => {
     const {latitude, longitude} = evt.coords;
@@ -38,6 +72,13 @@ getMyWthrBtn.addEventListener("click", () => {
    
 })
 
+const axiosGetMyForecast = async (longitude,latitude) => {
+    const {data} = await axios.get(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`);
+        
+        putMyForecast(data)
+    }
+
 /////////////////////// Search Bar Weather
 
 const locationForm = document.getElementById("cityName")
@@ -48,9 +89,6 @@ document.addEventListener("submit", (e)=> {
     const cityEntry = cityLoc.value;
     getCity(cityEntry)
 })
-
-
-
 
 const getCity = async (cityEntry) => {
     const {data}= await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${cityEntry}&limit=1&appid=40ce40e3254302084831efa372ed8341`)
@@ -68,20 +106,29 @@ const convertToCity = async (cityLat, cityLong) => {
     
 }
 
-
-
 const putMyWeatherCity = (data) => {
+
+    try {
+        myforecast.innerHTML = "";
+        }catch(err){
+            console.log("no forecast to remove");
+        }finally {
+
+const firstLetterCapital = data.weather[0].description
+const firstLetterCapital2 = firstLetterCapital.charAt(0).toUpperCase() + firstLetterCapital.slice(1)
 
     const html2 = `<style> #myweather {visibility: visible;} </style>
                 <h1>Weather in ${data.name}</h1>
                 <h2> Temperature: ${Math.round(data.main.temp - 273.15)}°</h2>
-                <h2>${data.weather[0].main}</h3>
+                <h2>${firstLetterCapital2}</h3>
                 <h2><img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"></h2>
                 <h2>Humidity: ${data.main.humidity}%`;
     
     weatherCont2.innerHTML = html2
     
-}
+}}
+
+
 
 
 
