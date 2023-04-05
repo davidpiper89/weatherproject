@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="/styles.css">
     <script src="https://kit.fontawesome.com/b44533a4ad.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script defer type="module" src="js.js"></script>
+    <script type="module" src="js.js"></script>
 
 </head>
 <body>
     <header>
     <h1 class="header">T20 World Cup Cricket Ground Weather and Weather App</h1>
-    <nav><h2>Nav Bar</h2></a><a href="index2.html"><h2 class="link">Your Weather</h2></a></nav>
+    <nav><h2>Nav Bar</h2></a><a href="index2.html"><p class="link">Your Weather</p></a></nav>
     </header>
 
-    <div class="container1">
-        <h1>Cricket</h1>
-        <h2>Select ground..</h2>
+    <section class="container1">
+        <h2>Cricket</h2>
+        <p>Select ground..</p>
         <div class="ground-container">
             <button id="adelaide" class="gnd_btn"><img src="/images/adelaide-oval-redevelopment-image-1-min.jpg" width="200px" height="150px" alt=""><p>Adelaide Oval (Adelaide)</p></button>
             <button id="brisbane" class="gnd_btn"><img src="/images/The_Gabba_Panorama.jpg" width="200px" alt=""> <p>The Gabba (Brisbane)</p></button>
@@ -30,12 +30,13 @@
             <button id="sydney" class="gnd_btn"><img src="/images/Sydney_Cricket_Ground_(24509044622).jpg" alt="" width="200px" height="150px"><p>SCG (Sydney)</p></button>
         </div>
               <!-- <input type="date" id= "matchDate"> -->
-    </div>
+    </section>
     <div class="weathercontainer">
         <div id="weather"></div>
         <div id="weatherThoughts"></div>
     </div>
     <div id="forecastCont"></div>
+   
 
 
     
