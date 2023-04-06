@@ -25,6 +25,7 @@ The project consists of 2 html, 3 js and 1 css file.
 - _styles.css_ : The stylesheet for the application. It defines the layout and styling for the HTML elements.
 - _js.js_ : The JavaScript file for the main _index.html_ file. It handles the search form submission and makes requests to the OpenWeather API to retrieve the weather information and forecast for the selected location. It also updates the HTML with the retrieved information.
 - _js2.js_ : The JavaScript file for the second _index2.html_ file. Simular to the first JS file but handles the form submission.
+- _cityCoords.js_: Abstracts away the coods away from the 2 JS files avoiding magic numbers.
 
 ## **API**
 
