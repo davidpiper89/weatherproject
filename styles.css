@@ -1,12 +1,12 @@
 * {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
   background-image: linear-gradient(135deg, #83a4d4, #b6fbff);
   background-repeat: no-repeat;
   background-size: cover;
-
+  
 }
 
 .header {
@@ -33,6 +33,7 @@ h2 {
   display: inline-block;
   background-color: #4caf50;
   padding: 10px 20px;
+  margin: 5px;
   font-size: 16px;
   font-family: Arial, sans-serif;
   color: white;
@@ -46,7 +47,6 @@ h2 {
 .gnd_btn:hover {
   background-color: #45a049;
 }
-
 
 .gnd_btn p {
   position: absolute;
@@ -166,8 +166,7 @@ form button {
   border-radius: 4px;
 }
 .h3 {
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 @media (max-width: 600px) {
