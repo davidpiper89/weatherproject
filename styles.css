@@ -3,7 +3,10 @@
 }
 
 body {
-  background-color: #cefad0;
+  background-image: linear-gradient(135deg, #83a4d4, #b6fbff);
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 .header {
@@ -27,17 +30,23 @@ h2 {
 /* #myweather {background-color: #454545;} */
 
 .gnd_btn {
-  display: flex;
-  position: relative;
-  margin: 15px 10px;
-  justify-content: center;
+  display: inline-block;
+  background-color: #4caf50;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-decoration: none;
   border: none;
-  padding: 0;
-  border-radius: 10px;
-  box-shadow: 3px 3px 8px 3px #192841;
-  overflow: hidden;
-  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
+
+.gnd_btn:hover {
+  background-color: #45a049;
+}
+
 
 .gnd_btn p {
   position: absolute;
@@ -129,4 +138,45 @@ h2 {
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+form input[type="text"] {
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.h3 {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form input[type="text"] {
+    margin-bottom: 10px;
+  }
 }
