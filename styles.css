@@ -36,10 +36,6 @@ nav {
   align-items: center;
 }
 
-.link {
-  font-size: 14px;
-}
-
 .ground-container {
   display: flex;
   justify-content: space-around;
