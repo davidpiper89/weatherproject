@@ -83,7 +83,7 @@ const putWeather1 = (weather) => {
                   }@2x.png"></h2>
                   <h2> Desciption: ${firstLetterCapital2}</h2>
                   <h2> Humidity: ${weather.main.humidity}%</h2> 
-                  <button id="getForecastBtn">Get the forecast</button>`;
+                  <button id="getForecastBtn"> Get the forecast</button>`;
 
   weatherCont.innerHTML = html;
 

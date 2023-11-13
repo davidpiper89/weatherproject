@@ -1,47 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/b44533a4ad.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b44533a4ad.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module">
+      import axios from "https://cdn.skypack.dev/axios";
+      window.axios = axios; 
+    </script>
     <script type="module" src="js.js"></script>
-
-</head>
-<body>
+  </head>
+  <body>
     <header>
-    <h1 class="header">T20 World Cup Cricket Ground Weather and Weather App</h1>
-    <nav><a href="index2.html"><button class="link">Your Weather</button></a></nav>
+      <h1 class="header">
+        T20 World Cup Cricket Ground Weather and Weather App
+      </h1>
+      <nav>
+        <a href="index2.html"><button class="link">Your Weather</button></a>
+      </nav>
     </header>
 
     <section class="container1">
-        <h1>Cricket Ground Weather App</h1>
-        <p>Select ground..</p>
-        <div class="ground-container">
-            <button id="adelaide" class="gnd_btn">Adelaide Oval (Adelaide)</button>
-            <button id="brisbane" class="gnd_btn">The Gabba (Brisbane)</button>
-            <button id="geelong" class="gnd_btn">Kardinia Park (Geelong)</button>
-            <button id="hobart" class="gnd_btn">Bellerive Oval (Hobart)</button>
-            <button id="melbourne" class="gnd_btn">MCG (Melbourne)</button>
-            <button id="perth" class="gnd_btn">Princes Park (Perth)</button>
-            <button id="sydney" class="gnd_btn">SCG (Sydney)</button>
-        </div>
-              <!-- <input type="date" id= "matchDate"> -->
+      <h1>Cricket Ground Weather App</h1>
+      <p>Select ground..</p>
+      <div class="ground-container">
+        <button id="adelaide" class="gnd_btn">Adelaide Oval (Adelaide)</button>
+        <button id="brisbane" class="gnd_btn">The Gabba (Brisbane)</button>
+        <button id="geelong" class="gnd_btn">Kardinia Park (Geelong)</button>
+        <button id="hobart" class="gnd_btn">Bellerive Oval (Hobart)</button>
+        <button id="melbourne" class="gnd_btn">MCG (Melbourne)</button>
+        <button id="perth" class="gnd_btn">Princes Park (Perth)</button>
+        <button id="sydney" class="gnd_btn">SCG (Sydney)</button>
+      </div>
+      <!-- <input type="date" id= "matchDate"> -->
     </section>
     <div class="weathercontainer">
-        <div id="weather"></div>
-        <div id="weatherThoughts"></div>
+      <div id="weather"></div>
+      <div id="weatherThoughts"></div>
     </div>
     <div id="forecastCont"></div>
-   
-
-
-    
-</body>
+  </body>
 </html>
