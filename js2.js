@@ -1,5 +1,4 @@
-import { KELVIN_TO_CELSIUS } from "./config";
-
+import { KELVIN_TO_CELSIUS } from "./config.js";
 
 const getMyWthrBtn = document.getElementById("getMyWthr");
 const weatherCont2 = document.getElementById("myweather");
@@ -18,7 +17,9 @@ const putMyWeather = (weather) => {
   const html2 = `<style> #myweather {visibility: visible;} </style>
             <h1>Weather in ${weather.name}</h1>
             <h2>Date and Time: ${date.toLocaleString("en-GB")}
-            <h2> Temperature: ${Math.round(weather.main.temp - KELVIN_TO_CELSIUS)}°</h2>
+            <h2> Temperature: ${Math.round(
+              weather.main.temp - KELVIN_TO_CELSIUS
+            )}°</h2>
             <h2> ${firstLetterCapital2}</h2>
             <h2><img src="https://openweathermap.org/img/wn/${
               weather.weather[0].icon
@@ -40,7 +41,9 @@ const putMyForecast = (data) => {
       firstLetterCapital.charAt(0).toUpperCase() + firstLetterCapital.slice(1);
     return `<div class="myforecast"> 
             <p> Date and Time ${forecast.dt_txt}</p>
-            <p>Temperature: ${Math.round(forecast.main.temp - KELVIN_TO_CELSIUS)}°</p>
+            <p>Temperature: ${Math.round(
+              forecast.main.temp - KELVIN_TO_CELSIUS
+            )}°</p>
             <p><img src="https://openweathermap.org/img/wn/${
               forecast.weather[0].icon
             }@2x.png"></p>
@@ -117,7 +120,9 @@ const putMyWeatherCity = (data) => {
 
   const html2 = `<style> #myweather {visibility: visible;} </style>
                 <h1>Weather in ${data.name}</h1>
-                <h2> Temperature: ${Math.round(data.main.temp - KELVIN_TO_CELSIUS)}°</h2>
+                <h2> Temperature: ${Math.round(
+                  data.main.temp - KELVIN_TO_CELSIUS
+                )}°</h2>
                 <h2>${firstLetterCapital2}</h3>
                 <h2><img src="https://openweathermap.org/img/wn/${
                   data.weather[0].icon
@@ -136,7 +141,9 @@ const putMyCityForecast = (data) => {
       firstLetterCapital.charAt(0).toUpperCase() + firstLetterCapital.slice(1);
     return `<div class="myforecast"> 
             <p> Date and Time ${forecast.dt_txt}</p>
-            <p>Temperature: ${Math.round(forecast.main.temp - KELVIN_TO_CELSIUS)}°</p>
+            <p>Temperature: ${Math.round(
+              forecast.main.temp - KELVIN_TO_CELSIUS
+            )}°</p>
             <p><img src="https://openweathermap.org/img/wn/${
               forecast.weather[0].icon
             }@2x.png"></p>

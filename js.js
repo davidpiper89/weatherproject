@@ -7,7 +7,7 @@ import {
   sydney,
   perth,
   KELVIN_TO_CELSIUS,
-  SECONDS_TO_MILLISECONDS
+  SECONDS_TO_MILLISECONDS,
 } from "./config.js";
 
 // Cricket Ground Weather
@@ -46,27 +46,25 @@ const perthTime = () => {
 
 const pullTime = (city) => {
   switch (city) {
-    case "Adelaide":
+    case adelaide.name:
       return adeBrisTime(myDate);
-    case "Woolloongabba":
+    case brisbane.name:
       return adeBrisTime(myDate);
-    case "Geelong":
+    case geelong.name:
       return geeHobMelSydTime(myDate);
-    case "Shikotan":
+    case hobart.name:
       return geeHobMelSydTime(myDate);
-    case "East Melbourne":
+    case melbourne.name:
       return geeHobMelSydTime(myDate);
-    case "Surry Hills":
+    case sydney.name:
       return geeHobMelSydTime(myDate);
-    case "Burswood":
+    case perth.name:
       return perthTime(myDate);
 
     default:
       break;
   }
 };
-
-
 
 const putWeather1 = (weather) => {
   forecastCont.innerHTML = "";
@@ -110,31 +108,31 @@ const pullForecast = (city, date) => {
   const unixTimestamp = date;
   const localDateTime = new Date(unixTimestamp * SECONDS_TO_MILLISECONDS);
   switch (city) {
-    case "Adelaide":
+    case adelaide.name:
       return localDateTime.toLocaleString("en-AU", {
         timeZone: "Australia/Brisbane",
       });
-    case "Woolloongabba":
+    case brisbane.name:
       return localDateTime.toLocaleString("en-AU", {
         timeZone: "Australia/Brisbane",
       });
-    case "Geelong":
+    case geelong.name:
       return localDateTime.toLocaleString("en-AU", {
         timeZone: "Australia/Sydney",
       });
-    case "Shikotan":
+    case hobart.name:
       return localDateTime.toLocaleString("en-AU", {
         timeZone: "Australia/Sydney",
       });
-    case "East Melbourne":
+    case melbourne.name:
       return localDateTime.toLocaleString("en-AU", {
         timeZone: "Australia/Sydney",
       });
-    case "Surry Hills":
+    case sydney.name:
       return localDateTime.toLocaleString("en-AU", {
         timeZone: "Australia/Sydney",
       });
-    case "Burswood":
+    case perth.name:
       return localDateTime.toLocaleString("en-AU", {
         timeZone: "Australia/Perth",
       });
@@ -153,7 +151,9 @@ const putForecast1 = (weather) => {
       weather.city.name,
       forecast.dt
     )} </p>
-                <p>Temperature: ${Math.round(forecast.main.temp - KELVIN_TO_CELSIUS)}°</p>
+                <p>Temperature: ${Math.round(
+                  forecast.main.temp - KELVIN_TO_CELSIUS
+                )}°</p>
                 <p><img src="http://openweathermap.org/img/wn/${
                   forecast.weather[0].icon
                 }@2x.png"></p>
