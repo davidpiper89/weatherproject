@@ -6,7 +6,9 @@ import {
   melbourne,
   sydney,
   perth,
-} from "./cityCoords.js";
+  KELVIN_TO_CELSIUS,
+  SECONDS_TO_MILLISECONDS
+} from "./config.js";
 
 // Cricket Ground Weather
 
@@ -64,6 +66,8 @@ const pullTime = (city) => {
   }
 };
 
+
+
 const putWeather1 = (weather) => {
   forecastCont.innerHTML = "";
   myDate = new Date();
@@ -76,7 +80,7 @@ const putWeather1 = (weather) => {
                   <h1> Weather in ${weather.name} </h1>
                   <h2> Date and Time: ${pullTime(weather.name)}</h2>
                   <h2> Temperature: ${Math.round(
-                    weather.main.temp - 273.15
+                    weather.main.temp - KELVIN_TO_CELSIUS
                   )}°</h2>
                   <h2><img src="http://openweathermap.org/img/wn/${
                     weather.weather[0].icon
@@ -104,7 +108,7 @@ const axiosGetCricketGroundWthr = async (longitude, latitude) => {
 
 const pullForecast = (city, date) => {
   const unixTimestamp = date;
-  const localDateTime = new Date(unixTimestamp * 1000);
+  const localDateTime = new Date(unixTimestamp * SECONDS_TO_MILLISECONDS);
   switch (city) {
     case "Adelaide":
       return localDateTime.toLocaleString("en-AU", {
@@ -149,7 +153,7 @@ const putForecast1 = (weather) => {
       weather.city.name,
       forecast.dt
     )} </p>
-                <p>Temperature: ${Math.round(forecast.main.temp - 273.15)}°</p>
+                <p>Temperature: ${Math.round(forecast.main.temp - KELVIN_TO_CELSIUS)}°</p>
                 <p><img src="http://openweathermap.org/img/wn/${
                   forecast.weather[0].icon
                 }@2x.png"></p>

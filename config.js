@@ -5,4 +5,7 @@ export const hobart = { long: 147.324997, lat: 42.8805546}
 export const melbourne = { long: 144.983398, lat: -37.819954}
 export const sydney = { long: 151.224121, lat: -33.891525}
 export const perth = { long: 115.888138, lat: -31.9510296}
+export const KELVIN_TO_CELSIUS = 273.15
+export const SECONDS_TO_MILLISECONDS = 1000
+
 
